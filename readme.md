@@ -1,0 +1,1 @@
+Implementação de estruturas de dados não lineares em Python, como complemento às aulas teóricas da faculdade.
