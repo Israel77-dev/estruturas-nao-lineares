@@ -121,17 +121,3 @@ class DirectedGraph(Graph):
     def remove_connection(self, connection):
         node_1, node2 = connection
         self._graph[node_1].remove(node2)
-
-
-if __name__ == "__main__":
-    q = UndirectedGraph(
-        [
-            ("A", "B"),
-            ("B", "C"),
-            ("B", "D"),
-            ("C", "D"),
-            ("C", "E"),
-            ("D", "E"),
-        ]
-    )
-    print(q.bfs("B"))
