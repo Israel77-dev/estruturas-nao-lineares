@@ -10,8 +10,8 @@ class BST:
     class Node:
         def __init__(self, value: int, parent=None, left=None, right=None):
             self.value: int = value
-            self.left: Union[Node, None] = left
-            self.right: Union[Node, None] = right
+            self.left: Union[BST.Node, None] = left
+            self.right: Union[BST.Node, None] = right
 
         def insert(self, value):
             if value < self.value:
@@ -39,13 +39,14 @@ class BST:
         def __str__(self):
             return str(self.value)
 
-    root: self.Node
+    root: BST.Node
 
     def __init__(self, root, others: Iterable = None):
         self.root = self.Node(root)
 
-        for v in others:
-            self.insert(v)
+        if others is not None:
+            for v in others:
+                self.insert(v)
 
     def insert(self, value):
         self.root.insert(value)
@@ -77,7 +78,7 @@ class BST:
         return root.search(item) is not None
 
     def __str__(self):
-        def show(root_node: Node):
+        def show(root_node: BST.Node):
             if root_node is not None:
                 l, r = root_node.left, root_node.right
                 return f"{root_node.value} ({show(l) if l is not None else '_'} {show(r) if r is not None else '_'})"
