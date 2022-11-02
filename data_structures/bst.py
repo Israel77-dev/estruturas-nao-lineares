@@ -12,16 +12,17 @@ class BST:
             self.value: int = value
             self.left: Union[BST.Node, None] = left
             self.right: Union[BST.Node, None] = right
+            self.parent: Union[BST.Node, None] = parent
 
         def insert(self, value):
             if value < self.value:
                 if self.left is None:
-                    self.left = BST.Node(value)
+                    self.left = BST.Node(value, parent=self)
                 else:
                     self.left.insert(value)
             else:
                 if self.right is None:
-                    self.right = BST.Node(value)
+                    self.right = BST.Node(value, parent=self)
                 else:
                     self.right.insert(value)
 
